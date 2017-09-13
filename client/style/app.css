@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:300,400');
+
+body {
+	font-family:			'Ubuntu', sans-serif;
+}
+
+header,
+footer {
+	font-family:			'Ubuntu', sans-serif;
+	font-size:				0.8rem;
+
+	background-color:		#333333;
+	color:					#ffffff;
+
+	padding:				1rem;
+}
+
+h1 {
+	font-family:			'Ubuntu', sans-serif;
+	font-size:				2rem;
+}
+
+h1 img {
+	width:					1.75rem;
+	height: 				1.75rem;
+
+	margin-right: 			0.5rem;
+}
+
+
+
+
+.vpsses {
+	margin-top: 			0.5rem;
+}
+
+.vps {
+	font-family:			'Ubuntu', sans-serif;
+	background-color:		#dddddd;
+
+	margin-top: 			1rem;
+	margin-bottom: 			1rem;
+
+	overflow-x: 			hidden;
+}
+
+.vps h2 {
+	font-family:			'Ubuntu', sans-serif;
+	font-size:				1.5rem;
+
+	margin:					1rem;
+	margin-bottom: 			0rem;
+}
+
+.vps h3 {
+	font-family:			'Ubuntu', sans-serif;
+	font-size:				1.2rem;
+
+	margin:					1rem;
+	margin-top: 			0.5rem;
+	margin-bottom: 			0.5rem;
+}
+
+.vps .stats .stat {
+	font-size: 				1rem;
+
+	padding:				1rem;
+}
+
+.vps .stat img {
+	opacity: 				0.75;
+}
+
+.vps .stat span {
+	float: 					right;
+}
+
+.success {
+	background-color:		#22bb5b;
+	color:					#0a0a0a; 
+}
+
+.success:hover, 
+.success.check {
+	background-color: 		#00a65e;
+	color: 					#0a0a0a; 
+}
+
+.success .stats {
+	border-top:				1px solid #00a65e;
+}
+
+.success .stats .stat {
+	border-right:			1px solid #00a65e;
+}
+
+.warning {
+	background-color: 		#ffae00;
+	color: 					#0a0a0a; 
+}
+
+.warning:hover, 
+.warning.check {
+	background-color: 		#cc8b00;
+	color: 					#0a0a0a; 
+}
+
+.warning .stats {
+	border-top:				1px solid #cc8b00;
+}
+
+.warning .stats .stat {
+	border-right:			1px solid #cc8b00;
+}
+
+.alert {
+	background-color: 		#d14339;
+	color: 					#fefefe; 
+}
+
+.alert:hover, 
+.alert.check {
+	background-color: 		#e2473d;
+	color: 					#fefefe;
+}
+
+.alert .stats {
+	border-top:				1px solid #e2473d;
+}
+
+.alert .stats .stat {
+	border-right:			1px solid #e2473d;
+}
+
+
+
+
+
+.vps_details {
+	overflow-x: 			hidden;
+}
+
+.vps_details h2 {
+	font-family:			'Ubuntu', sans-serif;
+	font-size:				2rem;
+
+	margin-bottom:			0rem;
+}
+
+.vps_details h3 {
+	font-family:			'Ubuntu', sans-serif;
+	font-size:				1.5rem;
+
+	margin-bottom:			1rem;
+}
+
+.vps_details .stats {
+	border-top:				1px solid #0a0a0a;
+	border-bottom:			1px solid #0a0a0a;
+	border-left:			1px solid #0a0a0a;
+}
+
+.vps_details .stats .stat {
+	font-size: 				1rem;
+
+	padding:				1rem;
+
+	border-right:			1px solid #0a0a0a;
+}
+
+.vps_details .stat img {
+	opacity: 				0.75;
+}
+
+.vps_details .stat span {
+	float: 					right;
+}

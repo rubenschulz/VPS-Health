@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<!-- Developed by Ruben Schulz - www.rubenschulz.nl -->
+
+<html>
+<head>
+	<meta charset='utf-8'>
+	<meta http-equiv='x-ua-compatible'                 content='ie=edge'>
+	<meta name='viewport'                              content='width=device-width, initial-scale=1.0'>
+	<meta name='apple-mobile-web-app-title'            content='VPS Health' />
+	<meta name='apple-mobile-web-app-capable'          content='yes' />
+	<meta name='apple-mobile-web-app-status-bar-style' content='black'/>
+	<link href='images/favicon-32x32.png'              type='image/png'  rel='icon'             sizes='32x32' />
+	<link href='images/favicon-16x16.png'              type='image/png'  rel='icon'             sizes='16x16' />
+	<link href='images/apple-touch-icon.png'                             rel='apple-touch-icon' sizes='180x180' />
+	<link href='images/manifest.json'                                    rel='manifest' />
+    <link rel='stylesheet' href='style/foundation/foundation.min.css'>
+    <link rel='stylesheet' href='style/app.css'>
+	<title>VPS Health</title>
+</head>
+<body>
+
+	<div class='grid-y medium-grid-frame'>
+		<header class='cell shrink'>
+		
+			<div class='grid-x grid-padding-x'>
+				<h1 class='cell small-12 medium-8'>
+					<img src='images/logo.png'>
+					VPS Health
+				</h1>
+				
+				<div class='cell small-12 medium-4 medium-text-right'>
+			
+					<button id='delete_all_history' class='button small' type='button'>
+						Delete all history
+					</button>
+			
+				</div>
+			</div>
+		
+		</header>
+
+		<main class='cell medium-auto medium-cell-block-container'>
+
+			<div class='grid-x'>
+				<div class='cell medium-cell-block-y'>
+ 
+		 			<div class='grid-container fluid'>
+						<div id='vpsses' class='grid-x grid-margin-x vpsses'>
+							<div id='dummy' class='cell small-12 medium-6 large-3 vps hide' data-sort='0'>
+								
+								<h2>VPS title</h2>
+								<h3>VPS hostname</h3>
+
+								<div class='stats grid-x'>
+									<div id='load_1'       title='Load 1 minute'   class='cell small-4 stat load'        ><img src='images/load.png'        ><span>-</span></div>
+									<div id='load_5'       title='Load 5 minutes'  class='cell small-4 stat load'        ><img src='images/load.png'        ><span>-</span></div>
+									<div id='load_15'      title='Load 15 minutes' class='cell small-4 stat load'        ><img src='images/load.png'        ><span>-</span></div>
+								</div>
+
+								<div class='stats grid-x'>
+									<div id='cpu'          title='CPU usage'       class='cell small-4 stat cpu'         ><img src='images/cpu.png'         ><span>-</span></div>
+									<div id='memory'       title='Memory usage'    class='cell small-4 stat memory'      ><img src='images/memory.png'      ><span>-</span></div>
+									<div id='disk'         title='Disk usage'      class='cell small-4 stat disk'        ><img src='images/disk.png'        ><span>-</span></div>
+								</div>
+
+								<div class='stats grid-x'>
+									<div id='uptime'       title='Uptime'          class='cell small-8 stat uptime'      ></div>
+									<div id='availability' title='Availability'    class='cell small-4 stat availability'><img src='images/availability.png'><span>-</span></div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+
+				</div>
+		    </div>
+
+			<div class='reveal large vps_details' id='vps_details' data-vps-id='' data-reveal>
+				<h2>VPS title</h2>
+				<h3>VPS hostname</h3>
+
+				<button id='delete_vps_history' class='button small' type='button'>
+					Delete VPS history
+				</button>
+
+				<div class='stats grid-x'>
+					<div id='cpu'          title='Total CPUs'       class='cell small-4 stat cpu'   ><img src='images/cpu.png'   ><span>-</span></div>
+					<div id='memory'       title='Total memory'     class='cell small-4 stat memory'><img src='images/memory.png'><span>-</span></div>
+					<div id='disk'         title='Total disk space' class='cell small-4 stat disk'  ><img src='images/disk.png'  ><span>-</span></div>
+				</div>
+
+				<div class='grid-x'>
+					<div class='cell small-12 large-6'>
+						<canvas id='history_load'         data-label='Load %'></canvas>
+					</div>
+					<div class='cell small-12 large-6'>
+						<canvas id='history_availability' data-label='Availability %'></canvas>
+					</div>
+				</div>
+
+				<div class='grid-x'>
+					<div class='cell small-12 large-4'>
+						<canvas id='history_cpu'          data-label='CPU usage %'></canvas>
+					</div>
+					<div class='cell small-12 large-4'>
+						<canvas id='history_memory'       data-label='Memory usage %'></canvas>
+					</div>
+					<div class='cell small-12 large-4'>
+						<canvas id='history_disk'         data-label='Disk usage %'></canvas>
+					</div>
+				</div>
+
+				<button class='close-button' type='button' data-close>
+					&times;
+				</button>
+			</div>
+
+		</main>
+	
+		<footer class='cell shrink text-center'>
+			Ruben Schulz 2017
+		</footer>
+	</div>
+
+	<script type='text/javascript' src='scripts/jquery/jquery-3.2.1.min.js'></script>
+	<script type='text/javascript' src='scripts/foundation/foundation.min.js'></script>
+	<script type='text/javascript' src='scripts/chart/chart.js'></script>
+	<script type='text/javascript' src='scripts/vps-health/vps-health-1.0.js'></script>
+	<script type='text/javascript' src='config.js'></script>
+
+</body>
+</html>
