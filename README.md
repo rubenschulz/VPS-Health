@@ -5,8 +5,8 @@ Dashboard to monitor VPS health
 The file scripts/app.js contains the VPS configuration.
 Add as many VPSses to the dashboard as you need.
 
-The dashboard will look for the server-side health.php script, in the location {host}/{path}/health.php. 
-Add the host and path variables in the VPS configuration to reflect the correct location of the script.
+The dashboard will look for the server-side health.php script, in the location {host}/{path}/{file}. 
+Add the host, path and optional file variables in the VPS configuration to reflect the correct location of the script.
 
 # API key
 An API key is used to restrict unwanted access to the server-side script. The default

@@ -54,7 +54,7 @@ var VPSHealth = (function(){
 			type     : 'get', 
 			dataType : 'json',
 			headers  : {
-				'X-API-Key': api_key
+				'X-API-Key': vps.api_key
 			},
 			complete: function(xhr, status){
 				// Set data
@@ -575,6 +575,7 @@ var VPSHealth = (function(){
 		// Set VPSHealth URL
 		vps.host = vps.host.replace(/\/+$/, '') + '/';
 		vps.path = vps.path.replace(/\/+$/, '') + '/';
+		vps.file = vps.file.replace(/\/+$/, '');
 		vps.url  = vps.host + vps.path + vps.file;
 		vps.url  = vps.url.replace(/([^:]\/)\/+/g, '$1');
 
@@ -640,6 +641,7 @@ var VPSHealth = (function(){
 
 	// Output
 	return {
+		setAPIKey     : setAPIKey,
 		setInterval   : setInterval,
 		setTimeout    : setTimeout,
 		setLoadWarning: setLoadWarning,
