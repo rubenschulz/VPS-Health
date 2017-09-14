@@ -85,23 +85,31 @@
 
 	function getServerCPU(){
 	 	// Get server_status cpu
-		$cpu_totals = shell_exec('cat /proc/stat | grep "cpu "');
-		$cpu_totals = trim(str_replace('  ', ' ', $cpu_totals));
-		$cpu_totals = explode(' ', $cpu_totals);
+		$cpu_totals_1 = shell_exec('cat /proc/stat | grep "cpu "');
+		$cpu_totals_1 = trim(str_replace('  ', ' ', $cpu_totals_1));
+		$cpu_totals_1 = explode(' ', $cpu_totals_1);
 
-		if(!empty($cpu_totals[1])){
+		// Sleep 1 second
+		sleep(1);
+
+	 	// Get server_status cpu
+		$cpu_totals_2 = shell_exec('cat /proc/stat | grep "cpu "');
+		$cpu_totals_2 = trim(str_replace('  ', ' ', $cpu_totals_2));
+		$cpu_totals_2 = explode(' ', $cpu_totals_2);
+
+		if(!empty($cpu_totals_1[1]) && !empty($cpu_totals_2[1])){
 			// Calculate cpu usage
 			$cpu               = array();
-			$cpu['user']       = !empty($cpu_totals[1])  ? $cpu_totals[1]  * 1 : NULL;
-			$cpu['nice']       = !empty($cpu_totals[2])  ? $cpu_totals[2]  * 1 : NULL;
-			$cpu['system']     = !empty($cpu_totals[3])  ? $cpu_totals[3]  * 1 : NULL;
-			$cpu['idle']       = !empty($cpu_totals[4])  ? $cpu_totals[4]  * 1 : NULL;
-			$cpu['iowait']     = !empty($cpu_totals[5])  ? $cpu_totals[5]  * 1 : NULL;
-			$cpu['irq']        = !empty($cpu_totals[6])  ? $cpu_totals[6]  * 1 : NULL;
-			$cpu['softirq']    = !empty($cpu_totals[7])  ? $cpu_totals[7]  * 1 : NULL;
-			$cpu['steal']      = !empty($cpu_totals[8])  ? $cpu_totals[8]  * 1 : NULL;
-			$cpu['guest']      = !empty($cpu_totals[9])  ? $cpu_totals[9]  * 1 : NULL;
-			$cpu['guest_nice'] = !empty($cpu_totals[10]) ? $cpu_totals[10] * 1 : NULL;
+			$cpu['user']       = !empty($cpu_totals_1[1])  ? $cpu_totals_2[1]  - $cpu_totals_1[1]  : NULL;
+			$cpu['nice']       = !empty($cpu_totals_1[2])  ? $cpu_totals_2[2]  - $cpu_totals_1[2]  : NULL;
+			$cpu['system']     = !empty($cpu_totals_1[3])  ? $cpu_totals_2[3]  - $cpu_totals_1[3]  : NULL;
+			$cpu['idle']       = !empty($cpu_totals_1[4])  ? $cpu_totals_2[4]  - $cpu_totals_1[4]  : NULL;
+			$cpu['iowait']     = !empty($cpu_totals_1[5])  ? $cpu_totals_2[5]  - $cpu_totals_1[5]  : NULL;
+			$cpu['irq']        = !empty($cpu_totals_1[6])  ? $cpu_totals_2[6]  - $cpu_totals_1[6]  : NULL;
+			$cpu['softirq']    = !empty($cpu_totals_1[7])  ? $cpu_totals_2[7]  - $cpu_totals_1[7]  : NULL;
+			$cpu['steal']      = !empty($cpu_totals_1[8])  ? $cpu_totals_2[8]  - $cpu_totals_1[8]  : NULL;
+			$cpu['guest']      = !empty($cpu_totals_1[9])  ? $cpu_totals_2[9]  - $cpu_totals_1[9]  : NULL;
+			$cpu['guest_nice'] = !empty($cpu_totals_1[10]) ? $cpu_totals_2[10] - $cpu_totals_1[10] : NULL;
 
 			$cpu['total']      = $cpu['user'] + $cpu['nice'] + $cpu['system'] + $cpu['idle'] + $cpu['iowait'] + $cpu['irq'] + $cpu['softirq'] + $cpu['steal'];
 			$cpu['free']       = $cpu['idle'] + $cpu['iowait'];
@@ -196,6 +204,13 @@
 
 
 /*** Actions ***/
+		// Get server status
+		$output = getServerStatus();
+
+		// Output
+		echo json_encode($output, JSON_PRETTY_PRINT);	
+
+
 	// Check API key
 	if($_SERVER['REQUEST_METHOD'] == 'OPTIONS' || 
 	   (!empty($_SERVER['HTTP_X_API_KEY']) && $_SERVER['HTTP_X_API_KEY'] == API_KEY)){
