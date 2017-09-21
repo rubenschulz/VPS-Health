@@ -111,7 +111,7 @@ var VPSHealth = (function(){
 				.removeClass('warning')
 				.removeClass('success')
 				.removeClass('alert')
-				.attr('data-sort', 40);
+				.attr('data-sort', 0);
 
 		}else{
 			// Set success
